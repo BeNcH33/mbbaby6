@@ -17,7 +17,12 @@ namespace mbbaby6
         [SetUp]
         public void SetUp()
         {
-            driver = new ChromeDriver();
+            var x = new ChromeOptions();
+            x.AddArgument("--headless");
+            x.AddArgument("--no-sandbox");
+            
+            driver = new ChromeDriver(x);
+
             js = (IJavaScriptExecutor)driver;
             vars = new Dictionary<string, object>();
         }
